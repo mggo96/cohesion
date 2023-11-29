@@ -84,15 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   const SizedBox(height: 20.0),
                   ElevatedButton(
                       onPressed: () {
-                        setState(() {
-                          var rnd = Random();
-                          do {
-                            var nombreAleatoire1 = rnd.nextInt(employe.length);
-                            index_employe_un = employe[nombreAleatoire1];
-                            var nombreAleatoire2 = rnd.nextInt(employe.length);
-                            index_employe_deux = employe[nombreAleatoire2];
-                          } while (index_employe_un == index_employe_deux);
-                        });
+                        laBoucleAleatoire();
                       },
                       child: const Text(
                         'choisi ton duo aleatoire',
@@ -133,5 +125,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  void laBoucleAleatoire() {
+    setState(() {
+      var rnd = Random();
+      do {
+        index_employe_un = employe[rnd.nextInt(employe.length)];
+        index_employe_deux = employe[rnd.nextInt(employe.length)];
+      } while (index_employe_un == index_employe_deux);
+    });
   }
 }
