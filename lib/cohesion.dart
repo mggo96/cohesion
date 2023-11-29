@@ -113,6 +113,11 @@ class _CohesionState extends State<Cohesion> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
+      ),
     );
   }
 
