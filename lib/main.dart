@@ -60,6 +60,8 @@ List<String> employe = [
 ];
 String index_employe_un = "";
 String index_employe_deux = "";
+List<String> repOUcafe = ['cafe', "repas"];
+String resultRepas = "";
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
@@ -85,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ElevatedButton(
                       onPressed: () {
                         laBoucleAleatoire();
+                        choisirRepasOUcafe();
                       },
                       child: const Text(
                         'choisi ton duo aleatoire',
@@ -116,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 Text(
-                  'repas',
+                  resultRepas,
                   style: TextStyle(fontSize: 24.0),
                 ),
               ],
@@ -125,6 +128,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  void choisirRepasOUcafe() {
+    var rnd = Random();
+    resultRepas = repOUcafe[rnd.nextInt(repOUcafe.length)];
   }
 
   void laBoucleAleatoire() {
