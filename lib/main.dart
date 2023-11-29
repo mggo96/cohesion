@@ -86,10 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         setState(() {
                           var rnd = Random();
-                          var nombreAleatoire = rnd.nextInt(employe.length);
-                          index_employe_un = employe[nombreAleatoire];
-                          nombreAleatoire = rnd.nextInt(employe.length);
-                          index_employe_deux = employe[nombreAleatoire];
+                          do {
+                            var nombreAleatoire1 = rnd.nextInt(employe.length);
+                            index_employe_un = employe[nombreAleatoire1];
+                            var nombreAleatoire2 = rnd.nextInt(employe.length);
+                            index_employe_deux = employe[nombreAleatoire2];
+                          } while (index_employe_un == index_employe_deux);
                         });
                       },
                       child: const Text(
